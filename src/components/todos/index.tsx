@@ -20,7 +20,7 @@ export const Todos = () => {
     const offlineData = queryClient.getQueryData(["offline-todos"]) as unknown[];
 
     // Replacing the title for offline reference
-    queryClient.setQueryData(["offline-todos"], [...offlineData, { ...data, title: `Offline - ${data.title}` }]);
+    queryClient.setQueryData(["offline-todos"], [...offlineData, { id: data, title: `Offline - ${data.title}` }]);
   };
 
   if (isLoading) return <div>Loading...</div>;

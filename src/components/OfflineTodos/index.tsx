@@ -1,15 +1,9 @@
 import { useQuery } from "react-query";
 
 const OfflineTodos = () => {
-  const { data, isLoading } = useQuery<{ title: string; id: number }[]>({
+  const { data } = useQuery<{ title: string; id: number }[]>({
     queryKey: ["offline-todos"],
-    queryFn: () => {
-      const offlineData = localStorage.getItem("offline-todos");
-      if (offlineData) {
-        return JSON.parse(offlineData);
-      }
-      return [];
-    },
+    queryFn: () => [],
   });
 
   return (
